@@ -47,12 +47,19 @@ int main()
 		min_transfer[i][i] = 0;
 	}
 	Station station_set[205];   //set of all station，结构体数组
+	int string_station = 54;
 	for (int i = 1; i <= n; i++) {	//存储站点所在线路
 		scanf("%s", station_name_c);
 		station_set[i].name = station_name_c;
 		while (scanf("%s", line_num) && line_num[0] != '0') {
 			if (line_num[0] == 'A')	//APM line is seen as 0 line
 				station_set[i].line.push_back(0);
+			else if(atoi(line_num) == 0) {
+				station_set[i].line.push_back(string_station);
+				string_station--;
+				if(string_station <= 15)
+					abort();
+			}
 			else
 				station_set[i].line.push_back(atoi(line_num));
 		}
