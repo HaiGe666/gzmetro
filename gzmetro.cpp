@@ -57,11 +57,11 @@ int main()
 			if (line_num[0] == 'A')	//APM line is seen as 0 line
 				station_set[i].line.push_back(0);
 			else if(atoi(line_num) == 0) {
-				if(string_station_num.find(line_name) != string_station_num.end()) {
-					station_set[i].line.push_back(string_station_num[line_name]);
+				if(string_station_num.find(line_num) != string_station_num.end()) {
+					station_set[i].line.push_back(string_station_num[line_num]);
 				}
-				else {
-					string_station_num[line_name] = string_station;
+				else {	
+					string_station_num[line_num] = string_station;
 					station_set[i].line.push_back(string_station);
 					string_station--;
 				}
